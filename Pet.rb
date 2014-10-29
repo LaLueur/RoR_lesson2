@@ -3,8 +3,8 @@ class Pet
 
   def initialize
     @pet_name = 'Po'
-    @awkwardness = 100 #неуклюжесть
-    @hp = 100 #здоровье
+    @awkwardness = 100
+    @hp = 100
     @intellect = 1
     @hunger = 100
     @mood = 100
@@ -20,6 +20,7 @@ class Pet
     kill_panda && stop if dead_panda?
     train_panda if bad_panda?
     make_panda_cry if sad_panda?
+
     #ToDo: wrap with extra lines
     puts '========================'
     puts 'Actions available:
@@ -79,7 +80,7 @@ private
     @hp -= 10
     @skill += 20
     @mood += 20
-    @hunger -= 10
+    @hunger += 10
     @awkwardness -= 20
     menu_view unless param
   end
@@ -180,7 +181,7 @@ private
       @pet_master = 'Shifu'
     end
     @skill += 15
-    @mood -=5
+    @mood -= 5
     @awkwardness -= 5
     menu_view unless param
   end
@@ -195,7 +196,6 @@ private
     puts 'So boring...'
     @mood -= 20
     @hunger += 10
-    @hp -= 5
     menu_view unless param
   end
 
@@ -233,14 +233,40 @@ private
           - name        (default value is Po)
           - awkwardness (default value is 100, be sure do not exceed 150 because your panda will be
                          punished by its master)
-          - hp          (default = 100, if your panda health decrease to 0 or less your pet will die)
+          - health      (default = 100, if your panda health decrease to 0 or less your pet will die)
           - intellect   (default = 1, be sure do not reduce to -5 because your panda will be
                          punished by its master)
           - hunger      (default = 100, be sure do not exceed 150 because your panda will die)
           - mood        (default = 100,
           - skill       (default = 0, be sure do not reduce to -5 because your panda will be
                          punished by its master)
-          - pet_master  (default = 'Shifu') "
+          - pet_master  (default = 'Shifu' but you can change it to Master Oogway)
+
+          Also you have several methods for your panda, such as:
+          - rename your panda
+          - feed your panda (panda hunger will decrease and health, mood and awkwardness will increase)
+          - help Mr.Ping at the noodle shop (it will increase your panda hunger and seriously decrease its mood)
+          - train your panda (it will increase mood, skills, hunger and decrease health and awkwardness)
+          - read scrolls (your panda becomes smarter and increase its skills)
+          - clean Jade Palace (it is a punishment, so panda mood will decrease and hunger will increase)
+          - challenge Tai Lung (increase: skills, intellect, hunger; decrease: health, awkwardness)
+          - meet furious five (your panda is their fan, so it will increase panda mood and awkwardness, decrease
+            its intellect)
+          - keep an eye on panda for a while (call some method and show you how panda stats change after that)
+          - change your panda master (increase: skills, decrease: mood and awkwardness)
+          - the wixi finger hold (your panda makes you angry? lets ruin its mood!)
+          - Panda sings a song (and the mood is getting better)
+          - display one of your panda stats (you just have to input whats the stat it should be)
+          - display all of your panda stats
+
+          Be carefully! If you don't input any choice for 20-30 seconds panda health stats will decrease and finally
+          it can die.
+          Also if intellect and skills become less than -5 or awkwardness becomes bigger than 150 your panda will be
+          punished by its Master: clean all the Jade Palace, additional training and read scrolls.
+          Be nice with your pet. If its mood become smaller than 20 your little panda will cry. Do you really want it?
+
+          Good luck! And have a nice time playing with panda!"
+
     menu_view unless param
   end
 
