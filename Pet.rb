@@ -2,20 +2,17 @@ class Pet
   NO_MENU = true
 
   def initialize
-    # panda is all we need
     @pet_name = 'Po'
     @awkwardness = 100 #неуклюжесть
     @hp = 100 #здоровье
     @intellect = 1
     @hunger = 100
-    @mood = 100 #возможно стоит завести хэш настроений
+    @mood = 100
     @skill = 0
     @pet_master = 'Shifu'
-    #ToDo: add sing to methods array
     @methods = %w(sweat_dreams work kung_fu_training
                 scrolls_reading furious_five_meet
-                challenging_tai_lung)
-    #method private for status dragon warrior
+                challenging_tai_lung sing)
     puts "Hello! What would you like to do? Panda's stats are next:"
   end
 
@@ -90,8 +87,6 @@ private
   def scrolls_reading param = false
     puts "Read...Read...Read...No! I'm not sleeping!"
     @intellect += 20
-    #ToDo: check this
-    #@sleep -= 10
     @skill += 10
     menu_view unless param
   end
@@ -334,7 +329,6 @@ private
       timer.kill
       next_action action[:value]
     else
-      #ToDo: Do something here
       afk
     end
   end
